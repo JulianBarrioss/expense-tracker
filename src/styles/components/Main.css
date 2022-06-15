@@ -1,0 +1,66 @@
+.main {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    width: 75%;
+    height: 100vh;
+    vertical-align: top;
+}
+
+.main__graph-container {
+ background-color: rgb(233, 233, 233);
+ width: 100%;
+ height: 50%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+
+.main__graph div {
+    height: 40%;
+    width: 40%;
+}
+
+
+.main__graph {
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    height: 80%;
+    display: flex;
+}
+
+.main__graph div {
+    display: flex;
+    justify-content: center;
+    width: 68%;
+}
+
+.bottom-container {
+    background-color: rgb(233, 233, 233);
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bottom__categories {
+    background-color: rgb(255, 255, 255);
+    height: 85%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.select-months {
+    width: 20%;
+    margin: 20px;
+    height: 25px;
+    padding: 0 9px 0 9px ;
+    color: #B1B1B1;
+    font-weight: 600;
+    box-shadow: 0px 0px 4px 0px #B1B1B1;
+    border: none;
+    border-radius: 15px;
+}
+

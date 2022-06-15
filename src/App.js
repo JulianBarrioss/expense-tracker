@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import { SideBar } from './components/SideBar';
+import { Main } from './components/Main';
+import { AppContext } from './context/AppContext';
+import { useInitialState } from './hooks/useInitialState';
+
+const App = () => {
+  const initialState = useInitialState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppContext.Provider value={initialState}>
+      <SideBar />
+      <Main />
+    </AppContext.Provider>
+  )
 }
 
-export default App;
+export default App
