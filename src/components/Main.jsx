@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 
 import { AppContext } from "../context/AppContext";
-import { BarChart } from "./BarChart";
+import { LineChart } from "./LineChart";
 import { PieIncomeChart } from "./PieIncomeChart";
 import { PieExpensesChart } from "./PieExpensesChart";
 import "../styles/components/Main.css";
@@ -27,8 +27,8 @@ const Main = () => {
         <option value="December">December</option>
       </select>
         <div className="main__graph">
-          <div>
-            <BarChart />
+          <div className="lineChartContainer">
+            <LineChart />
           </div>
         </div>
       </div>

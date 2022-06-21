@@ -16,23 +16,16 @@
  flex-direction: column;
 }
 
-.main__graph div {
-    height: 40%;
-    width: 40%;
-}
-
-
 .main__graph {
     background-color: rgb(255, 255, 255);
     width: 90%;
     height: 80%;
     display: flex;
+    justify-content: center;
 }
 
-.main__graph div {
-    display: flex;
-    justify-content: center;
-    width: 68%;
+.lineChartContainer {
+    width: 70%;
 }
 
 .bottom-container {
@@ -64,3 +57,23 @@
     border-radius: 15px;
 }
 
+@media (max-width: 930px) {
+    .main {
+        width: 100%;
+    }
+
+    .lineChartContainer {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .bottom-container {
+        height: auto;
+    }
+
+    .bottom__categories {
+        height: auto;
+        flex-direction: column;
+    }
+}

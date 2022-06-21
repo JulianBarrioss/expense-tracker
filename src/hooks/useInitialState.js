@@ -15,6 +15,7 @@ const initialExpenses = {
     //     // income: true,
     //     // expense: false,
     //     category: 'Deposits'
+          // month: ''
     // }
   ],
   total: 0,
@@ -76,21 +77,17 @@ const amounts = {
   ],
 };
 
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
-const date = new Date();
-// const month = monthNames[date.get]
-
 const useInitialState = () => {
   const [initialState, setInitialState] = useLocalStorage('initialState',initialExpenses);
-  const [amountsState, setAmountsState] = useLocalStorage('amounts' , amounts);
+  const [amountsState, setAmountsState] = useState(amounts);
   const [currentMonth, setCurrentMonth] = useState('');
   const [ref, setRef] = useState("");
 
   useEffect(() => {
-    console.log(currentMonth);
+    // console.log(currentMonth)
+    amountsState.incomes.map(income => income.amount = 0);
+    amountsState.expenses.map(expense => expense.amount = 0);
+
     setInitialState({
       ...initialState,
       total: 0,
