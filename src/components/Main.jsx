@@ -34,10 +34,10 @@ const Main = () => {
       </div>
       <div className="bottom-container">
         <div className="bottom__categories">
-          <div>
+          <div className="pie-income__container" >
             <PieIncomeChart className="graph" />
           </div>
-          <div>
+          <div className="pie-expense__container">
             <PieExpensesChart />
           </div>
         </div>

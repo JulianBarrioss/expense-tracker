@@ -3,21 +3,7 @@ import { useState, useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 const initialExpenses = {
-  expenses: [
-    // {
-    //     value: 50,
-    //     // income: true,
-    //     // expense: false,
-    //     category: ''Business''
-    // },
-    // {
-    //     value: 40,
-    //     // income: true,
-    //     // expense: false,
-    //     category: 'Deposits'
-          // month: ''
-    // }
-  ],
+  expenses: [],
   total: 0,
   incomesTotal: 0,
   expensesTotal: 0,
@@ -37,17 +23,17 @@ const incomeColors = [
   "#00ff9d",
 ];
 const expenseColors = [
-    "#b50d12",
-    "#bf2f1f",
-    "#cc474b",
-    "#c9452c",
-    "#d3583a",
-    "#dc6a48",
-    "#e57c58",
-    "#ee8d68",
-    "#f79d79",
-    "#ffae8a",
-    "#f55b5f",
+  "#b50d12",
+  "#bf2f1f",
+  "#cc474b",
+  "#c9452c",
+  "#d3583a",
+  "#dc6a48",
+  "#e57c58",
+  "#ee8d68",
+  "#f79d79",
+  "#ffae8a",
+  "#f55b5f",
 ];
 
 const amounts = {
@@ -78,23 +64,30 @@ const amounts = {
 };
 
 const useInitialState = () => {
-  const [initialState, setInitialState] = useLocalStorage('initialState',initialExpenses);
+  const [initialState, setInitialState] = useLocalStorage(
+    "initialState",
+    initialExpenses
+  );
   const [amountsState, setAmountsState] = useState(amounts);
-  const [currentMonth, setCurrentMonth] = useState('');
+  const [currentMonth, setCurrentMonth] = useState("");
+  const [chartLabels, setChartLabels] = useState({
+    incomesLabels: [],
+    expensesLabels: [],
+  });
   const [ref, setRef] = useState("");
 
   useEffect(() => {
-    // console.log(currentMonth)
-    amountsState.incomes.map(income => income.amount = 0);
-    amountsState.expenses.map(expense => expense.amount = 0);
+    amountsState.incomes.map((income) => (income.amount = 0));
+    amountsState.expenses.map((expense) => (expense.amount = 0));
+    setChartLabels({ incomesLabels: [], expensesLabels: [] });
 
     setInitialState({
       ...initialState,
       total: 0,
       incomesTotal: 0,
       expensesTotal: 0,
-    })
-  }, [currentMonth])
+    });
+  }, [currentMonth]);
 
   const scroll = (elem) => {
     elem.scrollTop = Math.abs(elem.scrollHeight);
@@ -133,7 +126,7 @@ const useInitialState = () => {
           category: (category.amount += Number(e.value)),
         });
       }
-        scroll(ref);
+      scroll(ref);
       //add expense
     } else if (!initialState.income && initialState.expense) {
       setInitialState({
@@ -150,7 +143,7 @@ const useInitialState = () => {
           category: (category.amount += Number(e.value)),
         });
       }
-        scroll(ref);
+      scroll(ref);
     }
   };
 
@@ -165,6 +158,8 @@ const useInitialState = () => {
     amountsState,
     setCurrentMonth,
     currentMonth,
+    chartLabels,
+    setChartLabels,
   };
 };
 

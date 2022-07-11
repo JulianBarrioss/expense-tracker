@@ -1,7 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-// import { Chart as ChartJS } from "chart.js/auto";
 import { AppContext } from "../context/AppContext";
 
 const chartData = {
@@ -202,10 +201,18 @@ const LineChart = () => {
         backgroundColor: "red",
       },
     ],
-  options: {
-    maintainAspectRatio: false
-  }}
-  return <Line data={data} />;
+  };
+
+  const options = {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  return <Line data={data} options={options} />;
 };
 
 export { LineChart };

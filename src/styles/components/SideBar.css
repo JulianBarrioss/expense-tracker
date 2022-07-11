@@ -10,6 +10,7 @@
     display: inline-block;
 }
 
+
 .sidebar__total {
     width: calc(100% - 20px);
     margin: 0 10px 20px 10px;
@@ -24,13 +25,11 @@
 .red-balance {
     background-color: rgb(245, 184, 184);
     color: rgb(248, 63, 63);
-    /* box-shadow: 0px 0px 4px 0px #B1B1B1; */
 }
 
 .green-balance {
     background-color: rgb(182, 255, 184);
     color: rgb(44, 186, 44);
-    /* box-shadow: 0px 0px 4px 0px #B1B1B1; */
 }
 
 .sidebar__total-text {
@@ -46,7 +45,7 @@
     padding: 0;
     font-size: large;
     font-weight: 700;
-}   
+}
 
 
 .sidebar__total p {
@@ -64,7 +63,7 @@
     width: 85%;
     margin: 20px;
     height: 25px;
-    padding: 0 9px 0 9px ;
+    padding: 0 9px 0 9px;
     color: #B1B1B1;
     font-weight: 600;
     box-shadow: 0px 0px 4px 0px #B1B1B1;
@@ -73,7 +72,7 @@
 }
 
 .sidebar__form-input::placeholder {
-    color: #c7c7c7;  
+    color: #c7c7c7;
 }
 
 .sidebar__form-input:focus {
@@ -88,13 +87,13 @@
     margin: 0 0 20px 0;
 }
 
-.incomeButton, .expenseButton {
+.incomeButton,
+.expenseButton {
     height: 100%;
     width: 45%;
     box-shadow: 0px 0px 4px 0px #B1B1B1;
     border: none;
     cursor: pointer;
-    /* border: 1px solid #B1B1B1; */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -102,21 +101,24 @@
     border-radius: 15px;
 }
 
-.income, .expense {
+.income,
+.expense {
     margin-bottom: 0;
     font-size: smaller;
     font-weight: 700;
     color: #B1B1B1;
 }
 
-.incomeTotal, .expenseTotal {
+.incomeTotal,
+.expenseTotal {
     color: #373737;
     margin: 0 0 10px 0;
     font-weight: 800;
     font-size: large;
 }
 
-.iconUp-container, .iconDown-container {
+.iconUp-container,
+.iconDown-container {
     margin-top: 15px;
     border-radius: 50%;
     width: 45px;
@@ -127,20 +129,21 @@
 }
 
 .iconUp-container {
-    color: rgb(44, 186, 44) ;
+    color: rgb(44, 186, 44);
     background-color: rgb(182, 255, 184);
 }
 
 .iconDown-container {
-    color: rgb(248, 63, 63) ;
-    background-color:  rgb(245, 184, 184) ;
+    color: rgb(248, 63, 63);
+    background-color: rgb(245, 184, 184);
 }
 
 .incomeButton:active {
     top: 2px;
     left: 1px;
     box-shadow: none;
-  }
+}
+
 .expenseButton {
     height: 100%;
     width: 45%;
@@ -150,7 +153,7 @@
     width: 85%;
     margin: 20px;
     height: 25px;
-    padding: 0 9px 0 9px ;
+    padding: 0 9px 0 9px;
     color: #B1B1B1;
     font-weight: 600;
     box-shadow: 0px 0px 4px 0px #B1B1B1;
@@ -159,7 +162,7 @@
 }
 
 .sidebar__form-input::placeholder {
-    color: #c7c7c7;  
+    color: #c7c7c7;
 }
 
 .sidebar__form-input:focus {
@@ -179,24 +182,25 @@
 
 .bottom__history {
     margin: 10px 10px 20px 10px;
-    height: 45.7%;
+    height: 350px;
     width: calc(100% - 20px);
     border-radius: 15px;
     overflow-x: hidden;
     overflow-y: auto;
-    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
 
 }
 
 
 
 .bottom__history::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 
 .expense-item {
@@ -211,6 +215,7 @@
 .expense-item div {
     display: flex;
     justify-content: space-between;
+    padding: 0 10px 0 10px;
     align-items: center;
 }
 
@@ -225,26 +230,53 @@
 .red {
     background-color: rgb(245, 184, 184);
 }
-/* @media (max-width: 853px) {
-    .sidebar {
-        background-color: rgb(132, 188, 118);
-    width: 100%;
-        display: flex;
-    }    
-} */
 
 @media (max-width: 930px) {
     .sidebar {
         width: 100%;
         height: auto;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
-    .sidebar__total {
-        width: 70%;
-        height: 15%;
+
+    .sideBar__form-container {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
     }
+
+    .sidebar__total {
+        width: 50%;
+        height: 60px;
+    }
+
+    .expense-item {
+        width: 90%;
+        height: 60px;
+    }
+
+    .bottom__history {
+        margin: 25px;
+        align-items: center;
+        width: 50%;
+    }
+}
+
+@media (max-width: 556px) {
+    .sidebar {
+        flex-direction: column;
+    }
+    .sidebar__total {
+        width: 90%;
+    }
+
+    .expense-item {
+        width: 100%;
+    }
+
     .bottom__history {
         width: 90%;
     }

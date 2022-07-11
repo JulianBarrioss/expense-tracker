@@ -16,9 +16,12 @@ const SideBar = () => {
     amountsState,
     currentMonth,
   } = useContext(AppContext);
-  const [expense, setExpense] = useState({ value: "", category: "", month: "" });
+  const [expense, setExpense] = useState({
+    value: "",
+    category: "",
+    month: "",
+  });
   const referencia = useRef();
-  const mes = currentMonth;
 
   useEffect(() => {
     setRef(referencia.current);
@@ -35,70 +38,77 @@ const SideBar = () => {
     setExpense({
       ...expense,
       category: event.target.value,
-      month: currentMonth
-
+      month: currentMonth,
     });
   };
 
   return (
     <div className="sidebar">
-      <div
-        className={`sidebar__total ${
-          initialState.total >= 0 ? "green-balance" : "red-balance"
-        }`}
-      >
-        <p className="sidebar__total-text">Total Balance</p>
-        <p className="sidebar__total-amount">${initialState.total}</p>
-      </div>
-
-      <form className="sidebar__form">
-        <input
-          placeholder="New Register"
-          className="sidebar__form-input"
-          type="Number"
-          onChange={(event) => getNewAmount(event)}
-        />
-        <div className="sideBar__form__type-container">
-          <button type="button" className="incomeButton" onClick={addIncome}>
-            <div className="iconUp-container">
-              <ArrowDownwardIcon sx={{ fontSize: 40 }} />
-            </div>
-            <p className="income">Income</p>
-            <p className="incomeTotal">${initialState.incomesTotal}</p>
-          </button>
-          <button type="button" className="expenseButton" onClick={addExpense}>
-            <div className="iconDown-container">
-              <ArrowUpwardIcon sx={{ fontSize: 40 }} />
-            </div>
-            <p className="expense">Expense</p>
-            <p className="expenseTotal">${initialState.expensesTotal}</p>
-          </button>
-        </div>
-
-        <select
-          placeholder="Select"
-          className="select"
-          value={incomeCategories.type}
-          id="browsers"
-          onChange={(event) => selectCategory(event)}
-        >
-          {initialState.income &&
-            incomeCategories.map((c) => <option key={c.type}>{c.type}</option>)}
-          {initialState.expense &&
-            expenseCategories.map((c) => (
-              <option key={c.type}>{c.type}</option>
-            ))}
-        </select>
-        <button
-          type="button"
-          className={`addButton ${
+      <div className="sideBar__form-container">
+        <div
+          className={`sidebar__total ${
             initialState.total >= 0 ? "green-balance" : "red-balance"
           }`}
-          onClick={() => add(expense)}
         >
-          Add
-        </button>
-      </form>
+          <p className="sidebar__total-text">Total Balance</p>
+          <p className="sidebar__total-amount">${initialState.total}</p>
+        </div>
+
+        <form className="sidebar__form">
+          <input
+            placeholder="New Register"
+            className="sidebar__form-input"
+            type="Number"
+            onChange={(event) => getNewAmount(event)}
+          />
+          <div className="sideBar__form__type-container">
+            <button type="button" className="incomeButton" onClick={addIncome}>
+              <div className="iconUp-container">
+                <ArrowDownwardIcon sx={{ fontSize: 40 }} />
+              </div>
+              <p className="income">Income</p>
+              <p className="incomeTotal">${initialState.incomesTotal}</p>
+            </button>
+            <button
+              type="button"
+              className="expenseButton"
+              onClick={addExpense}
+            >
+              <div className="iconDown-container">
+                <ArrowUpwardIcon sx={{ fontSize: 40 }} />
+              </div>
+              <p className="expense">Expense</p>
+              <p className="expenseTotal">${initialState.expensesTotal}</p>
+            </button>
+          </div>
+
+          <select
+            placeholder="Select"
+            className="select"
+            value={incomeCategories.type}
+            id="browsers"
+            onChange={(event) => selectCategory(event)}
+          >
+            {initialState.income &&
+              incomeCategories.map((c) => (
+                <option key={c.type}>{c.type}</option>
+              ))}
+            {initialState.expense &&
+              expenseCategories.map((c) => (
+                <option key={c.type}>{c.type}</option>
+              ))}
+          </select>
+          <button
+            type="button"
+            className={`addButton ${
+              initialState.total >= 0 ? "green-balance" : "red-balance"
+            }`}
+            onClick={() => add(expense)}
+          >
+            Add
+          </button>
+        </form>
+      </div>
 
       <div className="bottom__history" ref={referencia}>
         {initialState.expenses.map((item, index) => (
@@ -111,8 +121,10 @@ const SideBar = () => {
             }
           >
             <div>
-              <p>{item.category}</p>
-              <p>${item.value}</p>
+              <span>
+                <p>{item.category}</p>
+                <p>${item.value}</p>
+              </span>
               <p>{item.month}</p>
             </div>
           </div>
