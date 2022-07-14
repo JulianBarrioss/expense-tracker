@@ -69,6 +69,11 @@
         width: 100%;
     }
 
+    .select-months {
+        position: absolute;
+        top: 0;
+    }
+
     .bottom-container {
         height: auto;
     }
