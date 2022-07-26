@@ -1,0 +1,24 @@
+{
+    "short_name": "Tracker",
+    "name": "Expense Tracker",
+    "icons": [
+      {
+        "src": "/public/assets/favicon.ico",
+        "type": "image/svg+ico",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "https://expense-trackerp2.netlify.app/",
+    "background_color": "#FFFF",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#000000",
+    "description": "A tool that helps you to keep track of your expenses and incomes",
+    "screenshots": [
+      {
+        "src": "https://i.ibb.co/txYvYtx/expensess.png",
+        "type": "image/png",
+        "sizes": "540x720"
+      }
+    ]
+  }
