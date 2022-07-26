@@ -8,7 +8,7 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "https://expense-trackerp2.netlify.app/",
+    "start_url": "/",
     "background_color": "#FFFF",
     "display": "standalone",
     "scope": "/",
