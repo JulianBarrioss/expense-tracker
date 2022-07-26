@@ -3,7 +3,7 @@
     "name": "Expense Tracker",
     "icons": [
       {
-        "src": "/public/assets/favicon.ico",
+        "src": "/public/assets/favicon.png",
         "type": "image/svg+ico",
         "sizes": "512x512"
       }
